@@ -29,5 +29,5 @@
 
 </ul>
 
-<%= link "Edit", to: log_path(@conn, :edit, @log) %>
-<%= link "Back", to: log_path(@conn, :index) %>
+<%= link "Edit", to: project_log_path(@conn, :edit, @conn.assigns[:project_id], @log) %>
+<%= link "Back", to: project_log_path(@conn, :index, @conn.assigns[:project_id]) %>
