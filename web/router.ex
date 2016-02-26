@@ -24,7 +24,8 @@ defmodule ErrorCop.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ErrorCop do
-  #   pipe_through :api
-  # end
+  scope "/api", ErrorCop do
+    pipe_through :api
+    post "/errors", ErrorApiController, :errors
+  end
 end
