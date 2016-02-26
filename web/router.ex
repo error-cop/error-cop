@@ -17,7 +17,10 @@ defmodule ErrorCop.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/projects", ProjectController
+
+    resources "/projects", ProjectController do
+      resources "/logs", LogController
+    end
   end
 
   # Other scopes may use custom stacks.

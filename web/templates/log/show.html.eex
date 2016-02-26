@@ -1,0 +1,33 @@
+<h2>Show log</h2>
+
+<ul>
+
+  <li>
+    <strong>Message:</strong>
+    <%= @log.message %>
+  </li>
+
+  <li>
+    <strong>Stacktrace:</strong>
+    <%= @log.stacktrace %>
+  </li>
+
+  <li>
+    <strong>Envivonment:</strong>
+    <%= @log.envivonment %>
+  </li>
+
+  <li>
+    <strong>Log hash:</strong>
+    <%= @log.log_hash %>
+  </li>
+
+  <li>
+    <strong>Project:</strong>
+    <%= @log.project_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: log_path(@conn, :edit, @log) %>
+<%= link "Back", to: log_path(@conn, :index) %>
