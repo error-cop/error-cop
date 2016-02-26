@@ -4,7 +4,7 @@ defmodule ErrorCop.Log do
   schema "logs" do
     field :message, :string
     field :stacktrace, {:array, :string}
-    field :envivonment, :string
+    field :environment, :string
     field :log_hash, :string
     belongs_to :project, ErrorCop.Project
 

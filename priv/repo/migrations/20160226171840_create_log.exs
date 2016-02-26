@@ -6,7 +6,7 @@ defmodule ErrorCop.Repo.Migrations.CreateLog do
       add :id, :binary_id, primary_key: true
       add :message, :string
       add :stacktrace, {:array, :string}
-      add :envivonment, :string
+      add :environment, :string
       add :log_hash, :string
       add :project_id, references(:projects, on_delete: :nothing, type: :binary_id)
 
