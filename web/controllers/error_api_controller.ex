@@ -7,17 +7,19 @@ defmodule ErrorCop.ErrorApiController do
     project = Repo.get! ErrorCop.Project, params["api_key"]
     log_hash = calculate_log_hash params["error"]["message"], params["error"]["stacktrace"]
     log = Repo.get_by ErrorCop.Log, log_hash: log_hash
+
     case log do
       nil ->
         log = %ErrorCop.Log{
           message: params["error"]["message"],
-          stacktrace: params["error"]["stack_trace"],
+          stacktrace: params["error"]["stacktrace"],
           environment: params["error"]["environment"],
+          log_hash: log_hash
         }
         {:ok, log} = Repo.insert log
-        {:ok, occurrence} = Repo.insert %ErrorLog.Occurrence{log_id: log.id}
+        {:ok, occurrence} = Repo.insert %ErrorCop.Occurrence{log_id: log.id}
       log ->
-        Repo.insert %ErrorCop.Occurance{log_id: log.id}
+        Repo.insert %ErrorCop.Occurrence{log_id: log.id}
     end
 
     json conn, %{status: :ok}
