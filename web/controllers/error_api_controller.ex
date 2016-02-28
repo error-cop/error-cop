@@ -26,7 +26,7 @@ defmodule ErrorCop.ErrorApiController do
   end
 
   defp calculate_log_hash(message, stacktrace) do
-    :erlang.md5("#{message}#{stacktrace}")
+    :crypto.hash(:sha256, "#{message}#{stacktrace}")
     |> Base.encode16
   end
 end
