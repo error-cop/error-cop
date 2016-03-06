@@ -1,4 +1,11 @@
 @import "bootstrap";
 
-body {
+.header {
+  background: linear-gradient(160deg, #C8B4D2, #C096D6, #C37676);
+
+  .app-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.4em;
+  }
 }
