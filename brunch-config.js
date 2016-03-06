@@ -21,7 +21,12 @@ exports.config = {
       // }
     },
     stylesheets: {
-      joinTo: "css/app.css"
+      joinTo: "css/app.css",
+      order: {
+        before: [
+          "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
+        ]
+      }
     },
     templates: {
       joinTo: "js/app.js"
@@ -54,6 +59,12 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/web\/static\/vendor/]
+    },
+
+    sass: {
+      options: {
+        includePaths: ["node_modules/bootstrap-sass/assets/stylesheets"],
+      }
     }
   },
 
